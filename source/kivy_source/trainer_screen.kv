@@ -1,0 +1,78 @@
+#:kivy 2.0.0
+
+############################################################################################################
+#                                                                                                          #
+#                                               ТРЕНАЖЁР                                                   #
+#                                                                                                          #
+############################################################################################################
+<TrainerScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        size_hint: 0.8, 0.8
+        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+        ###############################################################
+        #                       ТЕКСТ ДЛЯ НАБОРА                      #
+        ###############################################################
+        TextInput:
+            id: text_for_typing
+            text: root.original_text
+            font_size: 30
+            multiline: True
+            readonly: True
+            size_hint: 1, 0.5
+            font_name: 'RobotoMono-Regular.ttf'
+
+        ###############################################################
+        #                       ПОЛЕ ДЛЯ ВВОДА                        #
+        ###############################################################
+        TextInput:
+            id: text_for_check
+            text: ''
+            font_size: 30
+            multiline: True
+            size_hint: 1, 0.5
+            on_text: root.check_text(self.text)
+            font_name: 'RobotoMono-Regular.ttf'
+
+
+        ###############################################################
+        #                       ТЕКУЩАЯ СТАТИСТИКА                    #
+        ###############################################################
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: 1, 0.1
+
+            Label:
+                id: current_speed
+                text: 'Скорость: 0 зн/мин'
+                font_size: 20
+                size_hint: 0.5, 1
+                font_name: 'RobotoMono-Regular.ttf'
+
+            Label:
+                id: current_accuracy
+                text: 'Точность: 100%'
+                font_size: 20
+                size_hint: 0.5, 1
+                font_name: 'RobotoMono-Regular.ttf'
+
+        ###############################################################
+        #                       КНОПКА СТАРТА                         #
+        ###############################################################
+        Button:
+            text: 'Старт'
+            font_size: 20
+            size_hint: 1, 0.1
+            on_press: root.start()
+            font_name: 'RobotoMono-Regular.ttf'
+
+        ###############################################################
+        #                       ГЛАВНОЕ МЕНЮ                          #
+        ###############################################################
+        Button:
+            text: 'Главное меню'
+            font_size: 20
+            size_hint: 1, 0.1
+            on_press: root.manager.current = 'start_screen'
+            font_name: 'RobotoMono-Regular.ttf'

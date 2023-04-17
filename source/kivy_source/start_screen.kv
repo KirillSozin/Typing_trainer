@@ -1,0 +1,61 @@
+#:kivy 2.0.0
+
+
+###############################################################################
+#                                                                             #
+#                              СТАРТОВЫЙ ЭКРАН                                #
+#                                                                             #
+###############################################################################
+<StartScreen>:
+    BoxLayout:
+        id: background
+        orientation: 'vertical'
+        size_hint: 0.8, 0.8
+        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+        ###############################################################
+        #                       НАЗВАНИЕ ПРИЛОЖЕНИЯ                   #
+        ###############################################################
+        Label:
+            id: title
+            text: 'Typing Trainer'
+            font_size: 50
+            size_hint: 1, 0.2
+            pos_hint: {'center_x': 0.5, 'center_y': 0.7}
+            font_name: 'RobotoMono-Regular.ttf'
+
+        ###############################################################
+        #                       КНОПКА НАЧАТЬ                        #
+        ###############################################################
+        Button:
+            id: start_button
+            text: 'Начать'
+            font_size: 30
+            size_hint: 1, 0.2
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+            on_press: root.go_to_trainer()
+            font_name: 'RobotoMono-Regular.ttf'
+
+        ###############################################################
+        #                  КНОПКА ДОБАВИТЬ ТЕКСТ                      #
+        ###############################################################
+        Button:
+            id: add_text_button
+            text: 'Добавить текст'
+            font_size: 30
+            size_hint: 1, 0.2
+            pos_hint: {'center_x': 0.5, 'center_y': 0.3}
+            on_press: root.go_to_add_text()
+            font_name: 'RobotoMono-Regular.ttf'
+
+        ###############################################################
+        #                     КНОПКА СТАТИСТИКА                       #
+        ###############################################################
+        Button:
+            id: statistics_button
+            text: 'Статистика'
+            font_size: 30
+            size_hint: 1, 0.2
+            pos_hint: {'center_x': 0.5, 'center_y': 0.1}
+            on_press: root.go_to_statistics()
+            font_name: 'RobotoMono-Regular.ttf'
